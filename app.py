@@ -23,6 +23,12 @@ else:
     st.write(f"Count: {count}")
 
 
-df=pd.read_csv("Attendance/Attendance_" + date + ".csv")
-
+import os
+filepath = "Attendance/Attendance_" + date + ".csv"
+if os.path.exists(filepath):
+    df = pd.read_csv(filepath)
+    st.dataframe(df.style.highlight_max(subset=['TIME'], axis=0))
+else:
+    st.warning("No attendance recorded today yet!")
+    
 st.dataframe(df.style.highlight_max(subset=['TIME'], axis=0))
