@@ -30,5 +30,4 @@ if os.path.exists(filepath):
     st.dataframe(df.style.highlight_max(subset=['TIME'], axis=0))
 else:
     st.warning("No attendance recorded today yet!")
-    
-st.dataframe(df.style.highlight_max(subset=['TIME'], axis=0))
+
